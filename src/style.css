@@ -1,0 +1,58 @@
+body,
+html {
+  margin: 0;
+  background-color: slategray;
+}
+* {
+  box-sizing: border-box;
+}
+:root {
+  --border-width: 3px;
+  --border-color: rgba(0, 0, 0, 0.5);
+}
+#app {
+  max-width: 500px;
+  width: 90vw;
+  margin: 0 auto;
+  margin-top: 4rem;
+  padding: 2rem 0;
+  font-family: sans-serif;
+  text-align: center;
+  background-color: oldlace;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: center;
+}
+.cell {
+  height: 4rem;
+  width: 4rem;
+  background-color: transparent;
+  border: none;
+  font-weight: 600;
+  font-size: 50px;
+}
+.cell::after {
+  content: attr(data-content);
+}
+[data-content="X"] {
+  color: palevioletred;
+}
+[data-content="O"] {
+  color: darkcyan;
+}
+
+[data-row="0"] {
+  border-bottom: solid var(--border-width) var(--border-color);
+}
+[data-row="2"] {
+  border-top: solid var(--border-width) var(--border-color);
+}
+[data-col="0"] {
+  border-right: solid var(--border-width) var(--border-color);
+}
+[data-col="2"] {
+  border-left: solid var(--border-width) var(--border-color);
+}
